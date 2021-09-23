@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 export default class Login extends Component {
   render() {
@@ -21,7 +23,12 @@ export default class Login extends Component {
             <span>Or Conect With Social Media</span>
             <div className='social-fields'>
               <div>
-
+                <FontAwesomeIcon icon={faFacebookF} />
+                Sign in with Facebook
+              </div>
+              <div>
+                <FontAwesomeIcon icon={faInstagram} />
+                Sign in with Instagram
               </div>
             </div>
           </div>
