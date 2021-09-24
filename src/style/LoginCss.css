@@ -136,11 +136,18 @@ form input[type='submit']:hover {
   margin-bottom: 1rem;
   padding: 0.4rem;
   border-radius: 4px;
+}
 
+.icon-facebook {
+  margin-right: 0.6rem;
 }
 
 .footer .social-field .instagram {
   background: linear-gradient(to right, #db433d, #e2c72b);
   padding: 0.4rem;
   border-radius: 4px;
+}
+
+.icon-instagram {
+  margin-right: 0.5rem;
 }

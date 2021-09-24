@@ -4,17 +4,33 @@ import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import '../style/LoginCss.css';
 
 export default class Login extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      userName: '',
+      password: '',
+    }
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      userName: e.target.value,
+      password: e.target.value,
+    })
+  }
+
   render() {
     return (
       <main className='container'>
         <h2>Login</h2>
         <form>
           <div className='input-field'>
-            <input type="text" name='username' id='username' placeholder="Enter your username" />
+            <input type="text" name='username' value={this.state.userName} id='username' placeholder="Enter your username" onChange={this.handleChange} />
             <div className="underline"></div>
           </div>
           <div className='input-field'>
-            <input type="text" name='password' id='password' placeholder="Enter your password" />
+            <input type="text" name='password' value={this.state.password} id='password' placeholder="Enter your password" onChange={this.handleChange} />
             <div className="underline"></div>
           </div>
           <input type="submit" value="Continue" />
@@ -24,11 +40,11 @@ export default class Login extends Component {
             <span>Or Conect With Social Media</span>
             <div className='social-field'>
               <div className='facebook'>
-                <FontAwesomeIcon icon={faFacebookF} />
+                <FontAwesomeIcon className='icon-facebook' icon={faFacebookF} />
                 Sign in with Facebook
               </div>
               <div className="instagram">
-                <FontAwesomeIcon icon={faInstagram} />
+                <FontAwesomeIcon className='icon-instagram' icon={faInstagram} />
                 Sign in with Instagram
               </div>
             </div>
