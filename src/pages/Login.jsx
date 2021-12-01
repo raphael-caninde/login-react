@@ -10,41 +10,75 @@ export default class Login extends Component {
     this.state = {
       userName: '',
       password: '',
+      btnLogin: true,
     }
   }
 
-  handleChange = (e) => {
-    this.setState({
-      userName: e.target.value,
-      password: e.target.value,
-    })
+  handleChange = ({ target: { name, value } }) => {
+    this.setState({ [name]: value }, () => {
+      this.setState({ btnLogin: this.validateForm() })
+    });
+  }
+
+  validateForm = () => {
+    const { userName, password } = this.state
+
+    if(!userName || userName.length < 3) {
+      return true;
+    } else if(!password || password.length < 6) {
+      return true;
+    } else {
+      return false;
+    };
   }
 
   render() {
+    const { userName, password, btnLogin } = this.state;
+
     return (
       <main className='container'>
         <h2>Login</h2>
         <form>
           <div className='input-field'>
-            <input type="text" name='username' value={this.state.userName} id='username' placeholder="Enter your username" onChange={this.handleChange} />
+            <input
+              id='userName'
+              type="text"
+              name='userName'
+              placeholder="Enter your username"
+              value={ userName }
+              onChange={ this.handleChange }
+            />
             <div className="underline"></div>
           </div>
           <div className='input-field'>
-            <input type="text" name='password' value={this.state.password} id='password' placeholder="Enter your password" onChange={this.handleChange} />
+            <input
+              id='password'
+              type="password"
+              name='password'
+              placeholder="Enter your password"
+              value={ password }
+              onChange={ this.handleChange }
+            />
             <div className="underline"></div>
           </div>
-          <input type="submit" value="Continue" />
+          <button
+            className="btn-continue"
+            type="button"
+            disabled={ btnLogin }
+          >
+            Continue
+          </button>
           </form>
 
           <div className='footer'>
             <span>Or Conect With Social Media</span>
             <div className='social-field'>
               <div className='facebook'>
-                <FontAwesomeIcon className='icon-facebook' icon={faFacebookF} />
+                <FontAwesomeIcon className='icon-facebook' icon={ faFacebookF } />
                 Sign in with Facebook
               </div>
               <div className="instagram">
-                <FontAwesomeIcon className='icon-instagram' icon={faInstagram} />
+                <FontAwesomeIcon className='icon-instagram' icon={ faInstagram } />
                 Sign in with Instagram
               </div>
             </div>

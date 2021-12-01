@@ -85,7 +85,7 @@ form .input-field:first-child {
   color: rgba(0, 0, 0, 0.5);
 }
 
-form input[type='submit'] {
+.btn-continue {
   margin-top: 2rem;
   padding: 0.4rem;
   background: linear-gradient(to left, #4776e6, #8e54e9);
@@ -97,7 +97,7 @@ form input[type='submit'] {
   transition: all 0.3s ease;
 }
 
-form input[type='submit']:hover {
+.btn-continue:hover {
   letter-spacing: 0.5px;
   background: linear-gradient(to right, #4776e6, #8e54e9);
 }
